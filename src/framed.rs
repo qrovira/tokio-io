@@ -75,6 +75,15 @@ impl<T, U> Framed<T, U> {
         &mut self.inner.get_mut().get_mut().0
     }
 
+    /// Returns a mutable reference to the underlying codec wrapped by
+    /// `Framed`.
+    ///
+    /// Note that care should be taken to not tamper with the codec state
+    /// as it may corrupt the stream of frames otherwise being worked with.
+    pub fn codec_mut(&mut self) -> &mut U {
+        &mut self.inner.get_mut().get_mut().1
+    }
+
     /// Consumes the `Frame`, returning its underlying I/O stream.
     ///
     /// Note that care should be taken to not tamper with the underlying stream
