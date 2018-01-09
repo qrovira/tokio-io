@@ -56,6 +56,7 @@ mod framed;
 mod framed_read;
 mod framed_write;
 mod length_delimited;
+mod length_codec;
 mod lines;
 mod read;
 mod read_exact;
